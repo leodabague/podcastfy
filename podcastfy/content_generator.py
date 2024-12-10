@@ -57,7 +57,12 @@ class LLMBackend:
         }
 
         if is_local:
-            self.llm = Llamafile() # replace with ollama
+            from langchain_ollama import OllamaLLM
+            self.llm = OllamaLLM(
+                model="llama3.1",
+                temperature=temperature,
+                base_url="http://127.0.0.1:11434",
+            )
         elif (
             "gemini" in self.model_name.lower()
         ):  # keeping original gemini as a special case while we build confidence on LiteLLM
