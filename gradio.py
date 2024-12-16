@@ -127,4 +127,4 @@ with gr.Blocks() as interface:
     )
 
 # Run the app
-interface.launch(share=False, debug=True)
+interface.launch(share=False)
